@@ -6,4 +6,4 @@
     <title>Document</title>
 </head>
 <body>
-<?php include 'partials/nav.php'; ?>
+<?php include __DIR__ . '/nav.php'; ?>
