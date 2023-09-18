@@ -11,7 +11,7 @@ use App\Router;
 
 require __DIR__ . '/../routes.php';
 require __DIR__ . '/../helpers.php';
-$router = new Router($_SERVER['REQUEST_URI']);
+$router = new Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 $match = $router ->match();
 if($match){
     if(is_callable($match['action'])){ 
