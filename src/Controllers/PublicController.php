@@ -1,22 +1,14 @@
 <?php
 namespace App\Controllers;
 
-use App\DB;
+
+use App\Models\Article;
 use App\Models\User; 
 
 class PublicController {
     public function home(){
-        $result = User::all();
-        
-        var_dump($result);
-        
-
-       
-
-        die();
-        $name = 'Kevin';
-        $num = 10;
-        view('home', compact('name','num'));
+        $articles = Article ::all();
+        view('home',compact('articles'));
     }
     public function about(){
         view('about');
