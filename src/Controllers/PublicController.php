@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 
 use App\Models\Article;
-use App\Models\User; 
+
 
 class PublicController {
     public function home(){
@@ -20,5 +20,8 @@ class PublicController {
     }
     public function testAnswer(){
         var_dump($_POST);
+       
+
+
     }
 }
