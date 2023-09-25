@@ -29,6 +29,12 @@ class DB {
         $stmt->setFetchMode(PDO::FETCH_CLASS,$class);
         return $stmt->fetchAll();
     }
+    public function find($table, $class, $id,){
+        $stmt = $this->conn->prepare("SELECT * FROM $table where id=$id");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS,$class);
+        return $stmt->fetch();
+        }
 
     public function insert($table, $fields){
         unset($fields['id']);
@@ -39,5 +45,28 @@ class DB {
 
         // use exec() because no results are returned
         $this->conn->exec($sql);
+    }
+    public function update($table, $fields){
+        $id=$fields['id'];
+        unset($fields['id']);
+        $setText = '';
+        foreach($fields as $field=>$value){
+            $setText .= "$field='$value',";
+        }
+        $setText = rtrim($setText, ",");
+        $sql = "UPDATE $table SET $setText WHERE id=$id";
+
+        var_dump($sql);
+        die();
+         $stmt = $this->conn->prepare($sql);
+
+  // execute the query
+         $stmt->execute();
+    }
+    public function delete($table, $id){
+        
+    $sql = "DELETE FROM $table WHERE id=$id";
+    $this->conn->exec($sql);
+
     }
   }
