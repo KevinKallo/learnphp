@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 spl_autoload_register(function($className) {
     $className = substr($className, 4);
     // var_dump($className);

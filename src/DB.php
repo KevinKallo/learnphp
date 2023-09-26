@@ -69,4 +69,13 @@ class DB {
     $this->conn->exec($sql);
 
     }
+    public function where($table, $class, $field, $value){
+        var_dump("SELECT * FROM $table where $field='$value'");
+        $stmt = $this->conn->prepare("SELECT * FROM $table where $field='$value'");
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $stmt->setFetchMode(PDO::FETCH_CLASS,$class);
+        return $stmt->fetchAll();
+    }
   }
