@@ -13,15 +13,31 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href="/">
         Home
       </a>
 
-      <a class="navbar-item" href="/admin/articles">
-        Admin
-      </a>
+      <div class="navbar-item has-dropdown is-hoverable" href="/admin/articles">
+        <a class="navbar-link">
+          Admin
+        </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/admin/users">
+          Accounts
+          </a>
+          <a class="navbar-item" href="/admin/articles">
+          Admin
+        </a>
+        </div>
+      </div>
+
+
+      
+
+    
+
+    <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More
         </a>
@@ -36,6 +52,7 @@
           <a class="navbar-item">
             Contact
           </a>
+          
           <hr class="navbar-divider">
           <a class="navbar-item">
             Report an issue
@@ -43,20 +60,21 @@
         </div>
       </div>
     </div>
+  </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <?php if(auth()): ?>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            <?=auth()->email?>
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="/logout">
-              Logout
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <?=auth()->email?>
             </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="/logout">
+                Logout
+              </a>
+            </div>
           </div>
-        </div>
         <?php else: ?>
         <div class="buttons">
           <a class="button is-primary" href="/register">

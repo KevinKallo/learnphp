@@ -8,7 +8,7 @@ use App\Models\Article;
 class PublicController {
     public function home(){
         $articles = Article ::all();
-        dd($articles);
+        // dd($articles);
         view('home',compact('articles'));
     }
     public function about(){

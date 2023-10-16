@@ -56,8 +56,8 @@ class DB {
         $setText = rtrim($setText, ",");
         $sql = "UPDATE $table SET $setText WHERE id=$id";
 
-        var_dump($sql);
-        die();
+        // var_dump($sql);
+        // die();
          $stmt = $this->conn->prepare($sql);
 
   // execute the query
@@ -70,7 +70,7 @@ class DB {
 
     }
     public function where($table, $class, $field, $value){
-        var_dump("SELECT * FROM $table where $field='$value'");
+        // var_dump("SELECT * FROM $table where $field='$value'");
         $stmt = $this->conn->prepare("SELECT * FROM $table where $field='$value'");
         $stmt->execute();
 
