@@ -15,10 +15,10 @@ class UserController {
     }
 
     public function store(){
-        $article = new User();
-        $article->email = $_POST['title'];
-        $article->password = $_POST['body'];
-        $article->save();
+        $user = new User();
+        $user->email = $_POST['email'];
+        $user->password = $_POST['passw0rd'];
+        $user->save();
         header('Location: /admin/users');
     }
 
